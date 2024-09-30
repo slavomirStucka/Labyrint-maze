@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/labyrint.css"/>
+</head>
+<body>
+
+<div th:if="not ${@labyrintMazeController.setDifficulty}">
+    <div class="nadpis">
+        <h3>CHOOSE DIFFICULTY!</h3>
+    </div>
+    <div style="display: flex; justify-content: center;">
+        <a href="/labyrint-maze/easy"  class="button">EASY</a>
+        <a href="/labyrint-maze/medium" class="button">MEDIUM</a>
+        <a href="/labyrint-maze/hard"  class="button">HARD</a>
+    </div>
+</div>
+
+<div th:if="${@labyrintMazeController.setDifficulty}" >
+    <div class="header">
+        <span th:if="${@userController.logged}" class="meno">
+        Logged as: <span th:text="${@userController.loggedUser.name}"/>
+        </span>
+        <div class="tlacidlo">
+            <a href="#divFour" class="button" style="float: left;">Add Rating</a>
+            <br><br>
+            <span class="meno">
+                RATING:
+                <!--<div class="stars-container">-->
+                        <span th:text="${@labyrintMazeController.averageRating}" style="float: right;" class="stars"/>
+            </span>
+        </div>
+    </div>
+
+
+
+    <div th:if="not ${@labyrintMazeController.solved}">
+        <div class="nadpis">
+            <span>Find the way!</span>
+            <h1> LABYRINT-MAZE</h1>
+        </div>
+        <div class="cas">
+       <!-- <span th:text="${@labyrintMazeController.hranyCas}"></span>-->
+        </div>
+    </div>
+
+
+    <div th:if="${@labyrintMazeController.solved}" class="nadpis">
+        <h1> Congratulations!!</h1>
+        <!--<span th:text="${@labyrintMazeController.hranyCas}"/>-->
+        <br>
+        <!--<span th:if="${@userController.logged}" class="nadpis">-->
+            <a href="/labyrint-maze/addScore" class="scoreButton">Add Score!</a>
+        <!--</span>-->
+        <!--<span th:if="not ${@userController.logged}" class="nadpis">
+            <a href="/labyrint-maze/new" class="scoreButton">New Game</a>
+        </span>-->
+        <div class="confetti">
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+            <div class="confetti-piece"></div>
+
+        </div>
+    </div>
+
+
+
+    <div th:if="not ${@labyrintMazeController.solved}" class="tlacidlo">
+        <a href="/labyrint-maze/new">New Game</a>
+        <a href="#divOne" class="button">Top Scores</a>
+        <a href="#divTwo" class="button">Comments</a>
+    </div>
+
+
+    <div th:if="not ${@labyrintMazeController.solved}" class="gamefield">
+        <span th:utext="${@labyrintMazeController.htmlField}">
+        </span>
+        <div class="arrow-buttons">
+            <a href="/labyrint-maze?direction=NORTH" class="arrow-button up"><span></span></a>
+            <a href="/labyrint-maze?direction=SOUTH" class="arrow-button down"><span></span></a>
+            <a href="/labyrint-maze?direction=WEST" class="arrow-button left"><span></span></a>
+            <a href="/labyrint-maze?direction=EAST" class="arrow-button right"><span></span></a>
+        </div>
+        <!--<a href="/labyrint-maze/random" class="arrow-button random"><span></span></a>-->
+        <a href="/labyrint-maze/teleport" class="back"><span>🔄</span></a>
+
+    </div>
+
+
+
+
+
+
+    <!--POP UP OKNO PRE SCORE-->
+    <div class="overlay" id="divOne">
+        <div class="wrapper">
+            <div class="nadpis" id="nadpis2">
+                <h2>TOP 10 Scores</h2>
+            </div>
+            <a href="#" class="close">&times;</a>
+            <div class="content">
+                <div class="container">
+                    <div class="tableScore">
+                        <table id="serverSideScoreTable">
+                            <thead>
+                            <tr>
+                                <div id="nadpisTable">
+                                    <th>Player&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                                    <th>Points</th>
+                                    <th>Played at</th>
+                                </div>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="score: ${scores}">
+                                <td th:text="${score.player}"></td>
+                                <td th:text="${score.points}"></td>
+                                <td th:text="${score.playedon}"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                </divclass>
+            </div>
+        </div>
+    </div>
+
+    <!--POP UP OKNO PRE COMMENT-->
+    <div class="overlay" id="divTwo">
+        <div class="wrapper">
+            <div class="nadpis" id="nadpis22">
+                <h2>Comments</h2>
+            </div>
+            <a href="#" class="close">&times;</a>
+            <div class="content">
+                <div class="container">
+                    <div class="tableScore">
+                        <table id="serverCommentTable">
+                            <thead>
+                            <tr>
+                                <div id="nadpisTableComment">
+                                    <th>Player&nbsp;&nbsp;</th>
+                                    <th>Comment&nbsp;</th>
+                                    <th>Commented at</th>
+                                </div>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="comment: ${comments}">
+                                <td th:text="${comment.player}"></td>
+                                <td th:text="${comment.comment}"></td>
+                                <td th:text="${comment.commentedOn}"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                </divclass>
+            </div>
+            <!--<span th:if="${@userController.logged}" class="meno">-->
+                <a href="#divThree" class="button"> Add Comment</a>
+            <!--</span>-->
+        </div>
+    </div>
+
+
+    <!-- -->
+    <div class="overlay" id="divThree">
+        <div class="wrapper">
+            <div class="nadpis" id="nadpisAdd">
+                <h2>Add your comment:</h2>
+            </div>
+                <a href="#" class="close">&times;</a>
+                <div class="content">
+                    <div class="container">
+                        <form action="labyrint-maze/addComment" method="post" >
+                            <input type="text" placeholder="Your comment" name="comment">
+                            <button class="signin" >
+                                    Submit
+                            </button>
+                        </form>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    <!--<span th:if="${@userController.logged}" class="meno">-->
+        <div class="overlay" id="divFour">
+            <div class="wrapper">
+                <div class="nadpis" id="nadpis222">
+                    <h2>Add your rating</h2>
+                </div>
+                <a href="#" class="close">&times;</a>
+                <div class="content">
+                    <div class="container">
+                        <div class='range'>
+                            <input type="range" min='1' max='5' step='1' />
+                            <span>3</span>
+                        </div>
+
+                       <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+                        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+                                integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+                                crossorigin="anonymous"></script>
+                        <script type="text/javascript">
+                            $(function(){
+                                $('.range input').on('mousemove', function(){
+                                    var getValRange = $(this).val();
+                                    $('.range span').text(getValRange + '⭐');
+                                });
+                                $('.add-rating-btn').on('click', function(e){
+                                    e.preventDefault();
+                                    var rating = $('.range input').val();
+                                    window.location.href = '/labyrint-maze/addRating?rating=' + rating;
+                                });
+                            });
+                        </script>
+                        <br>
+                        <a href="#" class="add-rating-btn button">Add Rating!</a>
+                    </div>
+                    </divclass>
+                </div>
+            </div>
+        </div>
+    <!--</span>-->
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</body>
+
+</html><R></R>

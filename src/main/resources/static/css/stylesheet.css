@@ -1,0 +1,396 @@
+body {
+    background-image: url('https://st.depositphotos.com/1005793/2401/i/600/depositphotos_24012513-stock-photo-man-in-labyrinth.jpg');
+    background-size: cover;
+    backdrop-filter: blur(5px);
+}
+body,
+.signin {
+    background-color: #d3d3d3;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.login {
+    position: relative;
+    height: 560px;
+    width: 405px;
+    margin: auto;
+    padding: 60px 60px;
+    background: url(https://picsum.photos/id/1004/5616/3744) no-repeat   center center #505050;
+    background-size: cover;
+    box-shadow: 0px 30px 60px -5px #000;
+}
+.logout {
+    position: relative;
+    height: 250px;
+    width: 405px;
+    margin: auto;
+    padding: 60px 60px;
+    background: url(https://picsum.photos/id/1004/5616/3744) no-repeat   center center #505050;
+    background-size: cover;
+    box-shadow: 0px 30px 60px -5px #000;
+}
+
+div.logout span {
+    display: block;
+    text-align: center;
+}
+#nadpis2 h2{
+    font-size: 60px;
+    text-align: center;
+    font-family: 'Bangers', cursive;
+    color: #1161ed;
+    text-shadow: 2px 2px 0px #000, 4px 4px 0px #666, 6px 6px 0px #fff;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: url('https://cdn.pixabay.com/photo/2016/05/09/21/32/graffiti-1387359_960_720.jpg');
+    background-size: cover;
+}
+
+.register {
+    position: relative;
+    height: 560px;
+    width: 405px;
+    margin: auto;
+    padding: 60px 60px;
+    background: url(https://picsum.photos/id/1004/5616/3744) no-repeat   center center #505050;
+    background-size: cover;
+    box-shadow: 0px 30px 60px -5px #000;
+}
+form {
+    padding-top: 80px;
+}
+
+.active {
+    border-bottom: 2px solid #1161ed;
+}
+
+.nonactive {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+h1 {
+    font-family: 'Bangers', cursive;
+    font-size: 80px;
+    text-align: center;
+    animation: fire 2s ease-in-out infinite;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: url('https://cdn.pixabay.com/photo/2016/05/09/21/32/graffiti-1387359_960_720.jpg');
+    background-size: cover;
+}
+
+@keyframes fire {
+    0% { color: #1161ed; text-shadow: 2px 2px 0px #000, 4px 4px 0px #666, 6px 6px 0px #fff; }
+    50% { color: #666; text-shadow: 2px 2px 0px #000, 4px 4px 0px #fff, 6px 6px 0px #1161ed; }
+    100% { color: #1161ed; text-shadow: 2px 2px 0px #000, 4px 4px 0px #666, 6px 6px 0px #fff; }
+}
+
+h2 {
+    padding-left: 12px;
+    font-size: 22px;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    letter-spacing: 2px;
+    display: inline-block;
+    font-weight: 100;
+}
+
+h2:first-child {
+    padding-left: 0px;
+}
+
+span {
+    text-transform: uppercase;
+    font-size: 16px;
+    opacity: 0.4;
+    display: inline-block;
+    position: relative;
+    top: -65px;
+    transition: all 0.5s ease-in-out;
+}
+
+.text {
+    border: none;
+    width: 89%;
+    padding: 10px 20px;
+    display: block;
+    height: 15px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0);
+    overflow: hidden;
+    margin-top: 15px;
+    transition: all 0.5s ease-in-out;
+}
+
+.text:focus {
+    outline: 0;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0);
+}
+
+.text:focus + span {
+    opacity: 0.6;
+}
+
+input[type="text"],
+input[type="password"] {
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+}
+
+
+
+input {
+    display: inline-block;
+    padding-top: 20px;
+    font-size: 14px;
+}
+
+h2,
+span,
+.custom-checkbox {
+    margin-left: 20px;
+}
+
+.custom-checkbox {
+    -webkit-appearance: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 8px;
+    border-radius: 2px;
+    display: inline-block;
+    position: relative;
+    top: 6px;
+}
+
+.custom-checkbox:checked {
+    background-color: rgba(17, 97, 237, 1);
+}
+
+.custom-checkbox:checked:after {
+    content: '\2714';
+    font-size: 10px;
+    position: absolute;
+    top: 1px;
+    left: 4px;
+    color: #fff;
+}
+
+.custom-checkbox:focus {
+    outline: none;
+}
+
+label {
+    display: inline-block;
+    padding-top: 10px;
+    padding-left: 5px;
+}
+
+.signin {
+    background-color: #1161ed;
+    color: #FFF;
+    width: 100%;
+    padding: 10px 20px;
+    display: block;
+    height: 39px;
+    border-radius: 20px;
+    margin-top: 20px;
+    transition: all 0.5s ease-in-out;
+    border: none;
+    text-transform: uppercase;
+}
+.signin .CP{
+    background-color: #1161ed;
+    color: #FFF;
+    width: 100%;
+    padding: 10px 20px;
+    display: block;
+    height: 39px;
+    border-radius: 20px;
+    margin-top: -20px;
+    transition: all 0.5s ease-in-out;
+    border: none;
+    text-transform: uppercase;
+}
+#CP{
+    background-color: #1161ed;
+    color: #FFF;
+    width: 100%;
+    padding: 10px 20px;
+    display: block;
+    height: 39px;
+    border-radius: 20px;
+    margin-top: -50px;
+    transition: all 0.5s ease-in-out;
+    border: none;
+    text-transform: uppercase;
+}
+
+
+.signin:hover {
+    background: #4082f5;
+    box-shadow: 0px 4px 35px -5px #4082f5;
+    cursor: pointer;
+}
+
+.signin:focus {
+    outline: none;
+}
+
+hr {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    top: 85px;
+    position: relative;
+}
+
+a {
+    text-align: center;
+    display: block;
+    top: 120px;
+    position: relative;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.2);
+}
+#tlacidloRegister a{
+    background-color: #1161ed;
+    color: #FFF;
+    width: 90%;
+    padding: 10px 20px;
+    display: block;
+    height: 22px;
+    border-radius: 30px;
+    margin-top: -100px;
+    transition: all 0.5s ease-in-out;
+    border: none;
+    text-transform: uppercase;
+    line-height: 25px;
+}
+.register-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.register-modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+}
+
+#register-btn {
+    margin: 0 auto;
+    display: block;
+}
+
+#close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Show the modal when Register button is clicked */
+#register-btn:focus + .register-modal {
+    display: block;
+}
+
+/* Hide the modal when close button is clicked */
+#close-btn:focus + .register-modal {
+    display: none;
+}
+.overlay{
+    position: fixed;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right:0;
+    background: rgba(0,0,0,0.8);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+.overlay:target{
+    visibility: visible;
+    opacity: 1;
+}
+.wrapper{
+    margin: 70px auto;
+    padding: 20px;
+    background: #e7e7e7;
+    border-radius: 15px;
+    width: 30%;
+    position: relative;
+    transition: all 5s ease-in-out;
+    border: 34px solid;
+    border-image: url(https://i.pinimg.com/736x/59/59/9a/59599a7d3bc0e59ec1aae1903677494c.jpg) 100 / 34px / 0px stretch;
+}
+.wrapper h2{
+    margin-top: 0;
+    color:#333;
+}
+.wrapper .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+.wrapper.content{
+    max-height: 30%;
+    overflow: auto;
+}
+.container{
+    border-radius: 5px;
+    background-color: #e7e7e7 ;
+    padding: 20px 0;
+}
+form label{
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 3px;
+}
+input[type=text2],textarea{
+    width: 100%;
+    padding: 12px;
+    border: 5px solid #1161ed;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-top: -50px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+input [type="submit"]{
+    background-color: #413b3b;
+    color: #000000;
+    padding: 15px 50px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+}
+div.overlay form {
+    margin-top: -100px;
+}
+.orText{
+    padding-left:190px;
+}

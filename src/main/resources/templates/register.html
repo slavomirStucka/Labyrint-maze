@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link  type='text/css' rel="stylesheet" href="/css/stylesheet.css"/>
+</head>
+<body>
+
+
+<div th:if="not ${@userController.logged}" class="register-modal" id="register-modal">
+  <div class="register-modal-content">
+    <h2 class="active"> Register </h2>
+    <h2 class="nonactive"> log out </h2>
+    <form action="/register" method="post">
+      <input type="text" class="text" name="login">
+      <span>user</span>
+      <br>
+      <br>
+      <input type="password" class="text" name="password">
+      <span>passd</span>
+      <br>
+      <button th:action="${@userController.register}" class="signin">
+        Register
+      </button>
+    </form>
+    <button class="close-btn" id="close-btn">&times;</button>
+    <a href="/">Finish</a>
+  </div>
+</div>
+
+</body>
+</html><R></R>

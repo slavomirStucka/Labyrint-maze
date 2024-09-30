@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="/css/labyrint.css"/>
+</head>
+<body>
+
+
+<div class="tlacidlo">
+  <a href="/labyrint-maze">Continue to play</a><br/>
+</div>
+
+<h2>Scores generated on server with thymeleaf</h2>
+<table id="serverSideScoreTable">
+  <thead>
+  <tr>
+    <th>Player</th>
+    <th>Points</th>
+    <th>Played at</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="score: ${scores}">
+    <td th:text="${score.player}"></td>
+    <td th:text="${score.points}"></td>
+    <td th:text="${score.playedon}"></td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html><R></R>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gamestudio</title>
+    <link  type='text/css' rel="stylesheet" href="/css/stylesheet.css"/>
+</head>
+<body>
+    <h1>Welcome to Gamestudio!</h1>
+
+
+<!--      NOT LOGGED     -->
+    <div th:if="not ${@userController.logged}" class="login">
+        <h2 class="active"> sign in </h2>
+        <h2 class="nonactive"> log out </h2>
+        <form action="/login" method="post">
+            <input type="text" class="text" name="login">
+            <span>username</span>
+            <br>
+            <br>
+            <input type="password" class="text" name="password">
+            <span>password</span>
+            <button class="signin">
+                Sign In
+            </button>
+            <br>
+            <div class="orText">
+                OR
+            </div>
+        </form>
+
+            <div id="tlacidloRegister">
+                <a href="#divOne">Register</a>
+            </div>
+
+    </div>
+
+    <!-- REGISTER MODAL -->
+    <div class="overlay" id="divOne">
+        <div class="wrapper">
+            <div id="nadpis2">
+                <h2>Register:</h2>
+            </div>
+            <a href="#" class="close">&times;</a>
+            <div class="content">
+                <div class="container">
+                    <form action="/register" method="post" >
+                        <input type="text2" placeholder="Username" name="login">
+                        <input type="text2" placeholder="Password" name="password">
+                        <button class="signin" >
+                            Finish registration
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGGED -->
+    <div th:if="${@userController.logged}" class="logout">
+        <h2 class="nonactive">sign in </h2>
+        <h2 class="active"> log out </h2>
+        <form action="/logout">
+            <span>You are signed in.</span>
+                <button class="signin" >
+                    Log out
+                </button>
+        </form>
+        <form action="/labyrint-maze">
+            <button class="signin" id="CP">
+                Continue to play
+            </button>
+        </form>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+</body>
+</html>
+
